@@ -52,7 +52,7 @@ router.post('/new-post', requireToken, (req, res, next) => {
   // set owner of new example to be current user
   req.body.post.owner = req.user.id
 
-  Post.create(req.body.example)
+  Post.create(req.body.post)
     .then(post => {
       res.status(201).json({ post: post.toObject() })
     })

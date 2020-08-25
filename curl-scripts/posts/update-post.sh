@@ -1,14 +1,13 @@
-#!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/new-post"
+URL_PATH="/posts"
 
-curl "${API}${URL_PATH}/" \
+curl "${API}${URL_PATH}/${ID}" \
   --include \
-  --request POST \
-  --header "Authorization: Bearer ${TOKEN}" \
+  --request PATCH \
   --header "Content-Type: application/json" \
-  --data '{
+--header "Authorization: Bearer ${TOKEN}" \
+--data '{
     "post": {
       "content": "'"${CONTENT}"'"
     }
