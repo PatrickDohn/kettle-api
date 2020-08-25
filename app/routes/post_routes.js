@@ -35,6 +35,19 @@ router.get('/', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// INDEX
+// GET all posts for the homepage
+router.get('/profile', requireToken, (req, res, next) => {
+  Post.find({ owner: req.user.id })
+    .then(posts => {
+      return posts.map(post => post.toObject())
+    })
+    // respond with status 200 and JSON of the examples
+    .then(posts => res.status(200).json({ posts: posts }))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
 // SHOW all posts for one user
 router.get('/posts/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
