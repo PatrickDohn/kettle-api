@@ -10,8 +10,7 @@ curl "${API}${URL_PATH}/" \
   --header "Content-Type: application/json" \
   --data '{
     "post": {
-      "content": "'"${CONTENT}"'",
-      "new": "'"${NEWPW}"'"
+      "content": "'"${CONTENT}"'"
     }
   }'
 

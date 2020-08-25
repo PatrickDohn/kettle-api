@@ -1,7 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 
-const Post = require('../models/post')
+const Post = require('../models/posts')
 // methods for error handling
 const customErrors = require('../../lib/custom_errors')
 
