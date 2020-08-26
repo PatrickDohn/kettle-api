@@ -32,6 +32,9 @@ This application is a social media platform inspired by Twitter. The idea is tha
 ## ERD
 [ERD](#)
 
+## Wireframe
+[Wireframe](https://imgur.com/BJKU7sP)
+
 ## API
 
 Use this as the basis for your own API documentation. Add a new third-level
