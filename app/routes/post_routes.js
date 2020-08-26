@@ -24,7 +24,7 @@ const router = express.Router()
 
 // INDEX
 // GET all posts for the homepage
-router.get('/', requireToken, (req, res, next) => {
+router.get('/posts', requireToken, (req, res, next) => {
   Post.find()
     .then(posts => {
       return posts.map(post => post.toObject())
