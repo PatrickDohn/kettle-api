@@ -6,6 +6,10 @@ const postSchema = new mongoose.Schema({
     required: true,
     maximum: 200
   },
+  ownerName: {
+    type: String,
+    required: true
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
