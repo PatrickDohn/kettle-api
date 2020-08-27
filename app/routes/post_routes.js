@@ -49,12 +49,16 @@ router.get('/profile', requireToken, (req, res, next) => {
 })
 
 // SHOW all posts for one user
-router.get('/posts/:id', requireToken, (req, res, next) => {
+router.get('/profile/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
-  Post.findById(req.params.id)
+  Post.find({ owner: req.params.id })
     .then(handle404)
     // if `findById` is succesful, respond with 200 and "example" JSON
-    .then(post => res.status(200).json({ post: post.toObject() }))
+    .then(posts => {
+      return posts.map(post => post.toObject())
+    })
+    // respond with status 200 and JSON of the examples
+    .then(posts => res.status(200).json({ posts: posts }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
