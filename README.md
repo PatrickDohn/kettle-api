@@ -2,11 +2,11 @@
 This application is a social media platform inspired by Twitter. The idea is that users can come here to share their ideas. Each user can view the posts of other users in the homepage feed or on their wall.
 
 ## Important Links
-- [API Repo](#)
-- [Deployed API](#)
+- [Client Repo](https://github.com/C2C-NeedABr/kettle-client)
+- [Deployed API](https://fathomless-castle-00355.herokuapp.com/)
 - [Deployed Client](#)
 ### Planning Story
-...
+We decided to keep the first version of the application fairly simple with only a user and post resource. Building out the API itself wasn't so difficult, but naming the paths proved a bit tricky the more specific we got.
 
 ### User Stories
 - As an unregistered user, I would like to sign up with email and password.
@@ -27,22 +27,17 @@ This application is a social media platform inspired by Twitter. The idea is tha
 - MongoDB
 
 ### Unsolved Problems
-...
+1. In V2 we would like to add more resources such as comments for each post to give users an authentic social networking experience.
 
 ## ERD
-[ERD](#)
+[ERD](https://imgur.com/a/m5zKjeN)
 
 ## Wireframe
 [Wireframe](https://imgur.com/BJKU7sP)
 
 ## API
 
-Use this as the basis for your own API documentation. Add a new third-level
-heading for your custom entities, and follow the pattern provided for the
-built-in user authentication documentation.
-
-Scripts are included in [`curl-scripts`](curl-scripts) to test built-in actions.
-Add your own scripts to test your custom API.
+All routes except `/sign-in` and `/sign-up` require Authentication headers in the requests.
 
 ### Authentication
 
@@ -55,9 +50,10 @@ Add your own scripts to test your custom API.
 
 ### Posts
 
-| Verb   | URI Pattern            | Controller#Action |
+| Verb   | URI Pattern            | Description |
 |--------|------------------------|-------------------|
-| GET    | `/`             | `users#signup`    |
-| POST   | `/post`             | `users#signin`    |
-| PATCH  | `/post/:id` | `users#changepw`  |
-| DELETE | `/post/:id`        | `users#signout`   |
+| GET    | `/users`             | `Get a list of all registered users`    |
+| GET    | `/posts`               | `Retrieve all posts`  |
+| POST   | `/new-post`             | `Send a new post`    |
+| PATCH  | `/posts/:id` | `Edit your own post`  |
+| DELETE | `/posts/:id`        | `Delete your own post`   |
