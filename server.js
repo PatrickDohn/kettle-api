@@ -40,6 +40,7 @@ const app = express()
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` }))
 
 // define port for API to run on
+// API
 const port = process.env.PORT || serverDevPort
 
 // this middleware makes it so the client can use the Rails convention
